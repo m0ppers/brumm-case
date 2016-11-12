@@ -121,6 +121,18 @@ difference()
 
         translate([width/2+roundR-35-72,-wide/2-roundR+30-8+44,0])
         nubsi();
+        
+translate([width/2 - 20,-wide/2-20,floorHeight])
+cube([20, 20, 2], center=false);
+
+translate([-width/2,-wide/2-20,floorHeight])
+cube([20, 20, 2], center=false);
+
+translate([width/4 - 20,-wide/2-20,floorHeight])
+cube([20, 20, 2], center=false);
+
+translate([-1*width/4,-wide/2-20,floorHeight])
+cube([20, 20, 2], center=false);
 	}
 }
 
@@ -141,6 +153,7 @@ difference()
                 translate(i)
                 cylinder(h=floorHeight+pcbHeightOffset+1.5, r=1.2);
 		}
+
 	}
 
 }
@@ -204,3 +217,4 @@ difference()
 	}
 
 }
+
