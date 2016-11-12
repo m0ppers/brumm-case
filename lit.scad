@@ -21,9 +21,9 @@ screwHeight=5;
 
 //------------------------------------------------------------------------- MODULES
 module pcbLeg() {
-	translate([0, 0, 0])
+	translate([0, 0, 0.501])
 	difference() { 											
-		cylinder(h = height - floorHeight - pcbHeightOffset - pcbHeight, r = 5/2);
+		cylinder(h = height - floorHeight - pcbHeightOffset - pcbHeight -0.5, r = 5/2);
 	}
 }
 
@@ -89,6 +89,18 @@ difference()
                 
 			}
         }
+        // halterung oben
+        difference()
+        {
+            translate([-10,0,-9.5])
+            linear_extrude(height = 10, convexity = 10)
+            minkowski()
+            {									
+                square([5, 30], center = true);
+                circle(roundR/2);
+            }
+
+        }
     }
     
 }
@@ -139,16 +151,3 @@ difference()
 															
 }
 
-// halterung oben
-difference()
-{
-    translate([-10,0,-10])
-    linear_extrude(height = 10, convexity = 10)
-    minkowski()
-    {									
-        square([5, 30], center = true);
-        circle(roundR/2);
-    }
-    translate([-10,0,-3])
-    cube([40, 25, 6], center=true);
-}

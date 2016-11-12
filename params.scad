@@ -100,3 +100,9 @@ convPcbHoles=[  [4.5, 4.5, 0],
           		[24.7, 4.5, 0],
                 [24.7, 40.0, 0]
              ];
+             
+nubsiPositions =[
+                    [width/2+roundR-35,-wide/2-roundR+30,0],
+                    [width/2+roundR-35-72,-wide/2-roundR+30-8,0],
+                    [width/2+roundR-35-72,-wide/2-roundR+30-8+44,0]
+                ];

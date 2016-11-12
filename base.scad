@@ -13,35 +13,18 @@ include <params.scad>
 
 //------------------------------------------------------------------------- MODULES
 module pcbLeg() {		
-	translate([0, 0, 0])
+	translate([0, 0, 0.5])
 	difference() { 											
-		cylinder(h = floorHeight + pcbHeightOffset, r1=5.5/2, r2 = 4.5/2);
+		cylinder(h = floorHeight + pcbHeightOffset - 0.5, r1=5.5/2, r2 = 4.5/2);
 	}
 }
 
 module nubsi() {
-    rotate([0, 180, 0])  
+    rotate([0, 0, 0])  
+    translate([0,0,-0.001])
     union() {
       
-		cylinder(h = 10, r1=19/2, r2 = 17/2);
-        translate([0,0,10])
-        {
-            cylinder(h = 11, r=8/2);
-            translate([0,0,11])
-            {
-                cylinder(h = 1, r=3);
-                translate([0,0,1])
-                {
-                    cylinder(h = 1, r=4);
-                    translate([0,0,1])
-                    {
-                        cylinder(h = 1, r1=4, r2=3);
-                    }
-                }
-                
-            }
-        }
-        
+		cylinder(h = 0.5, r=19/2);
 	}
 
 }
@@ -129,6 +112,15 @@ difference()
 				cube([pillarSize, sidePanelYWidth, height*2], center=true);
 			}
 		}
+        
+        translate([width/2+roundR-35,-wide/2-roundR+30,0])
+        nubsi();
+
+        translate([width/2+roundR-35-72,-wide/2-roundR+30-8,0])
+        nubsi();
+
+        translate([width/2+roundR-35-72,-wide/2-roundR+30-8+44,0])
+        nubsi();
 	}
 }
 
@@ -187,7 +179,8 @@ difference()
 	    		translate(i)
 	    		pcbLeg();
                 translate(i)
-                cylinder(h=floorHeight+pcbHeightOffset+1.5, r=1.2);
+                translate([0, 0, 0.5])
+                cylinder(h=floorHeight+pcbHeightOffset+1, r=1.2);
 		}
 	}
 
@@ -211,12 +204,3 @@ difference()
 	}
 
 }
-
-translate([width/2+roundR-35,-wide/2-roundR+30,0])
-nubsi();
-
-translate([width/2+roundR-35-72,-wide/2-roundR+30-8,0])
-nubsi();
-
-translate([width/2+roundR-35-72,-wide/2-roundR+30-8+44,0])
-nubsi();
