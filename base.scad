@@ -194,7 +194,6 @@ difference()
 }
 
 translate([convPcbPositionX, convPcbPositionY, 0])
-//rotate([0, 0, -90])
 
 difference()
 {
@@ -213,11 +212,11 @@ difference()
 
 }
 
-translate([width/2+roundR-25,-wide/2+20,0])
+translate([width/2+roundR-35,-wide/2-roundR+30,0])
 nubsi();
 
-translate([width/2+roundR-25-72,-wide/2+20-8,0])
+translate([width/2+roundR-35-72,-wide/2-roundR+30-8,0])
 nubsi();
 
-translate([width/2+roundR-25-72,-wide/2+20-8+44,0])
+translate([width/2+roundR-35-72,-wide/2-roundR+30-8+44,0])
 nubsi();

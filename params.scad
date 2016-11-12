@@ -53,12 +53,12 @@ echo("wide", wide + roundR*2); // total wide
 
 pcbHeight=1.64;
 pcbHeightOffset = 2.5;
-pcbGap = 3;
+pcbGap = 4;
 
 canPcbLength=28.0;
 canPcbWidth=43.0;
 canPcbPositionX = (width/2 + roundR - layerWidth*7 - gap*4) - pcbGap - canPcbLength;
-canPcbPositionY = -canPcbWidth/2;
+canPcbPositionY = -3/4*canPcbWidth;
 canPcbHoles=[ [2.5, 2.5, 0], 				
               [2.5, canPcbWidth - 2.5, 0],
           		[canPcbLength - 2.5, 2.5, 0],
@@ -67,7 +67,7 @@ canPcbHoles=[ [2.5, 2.5, 0],
 // UNO PCB dimensions
 megaPcbLength=102.0;
 megaPcbWidth=53.3;
-megaPcbPositionX = canPcbPositionX - megaPcbLength - pcbGap*2;
+megaPcbPositionX = canPcbPositionX - megaPcbLength - pcbGap;
 megaPcbPositionY = -(wide/2 + roundR - layerWidth*7 - gap*4) + 2;
 
 megaPcbHoles=[  [13.97, 2.54, 0], 				
@@ -94,7 +94,7 @@ convPcbLength=30;
 convPcbWidth=50.5;
 convHeight=23.0;
 convPcbPositionX=megaPcbPositionX - pcbGap - convPcbLength;
-convPcbPositionY=-10;
+convPcbPositionY=megaPcbPositionY + megaPcbWidth - 17;
 convPcbHoles=[  [4.5, 4.5, 0], 				
                 [4.5, 40.0, 0],
           		[24.7, 4.5, 0],
