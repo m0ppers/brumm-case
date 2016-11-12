@@ -133,6 +133,18 @@ cube([20, 20, 2], center=false);
 
 translate([-1*width/4,-wide/2-20,floorHeight])
 cube([20, 20, 2], center=false);
+
+translate([width/2 - 20,-wide/2-20,20])
+cube([20, 20, 2], center=false);
+
+translate([-width/2,-wide/2-20,20])
+cube([20, 20, 2], center=false);
+
+translate([width/4 - 20,-wide/2-20,20])
+cube([20, 20, 2], center=false);
+
+translate([-1*width/4,-wide/2-20,20])
+cube([20, 20, 2], center=false);
 	}
 }
 
