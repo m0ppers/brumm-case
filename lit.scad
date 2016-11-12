@@ -17,46 +17,13 @@ include <params.scad>
 connectorRoundR = 2.54/2;
 connectorWide = 2.54*3;
 
-upperConnectorWidth = 44.704 + 2.54*2;
-upperConnectorXPos = 18.796 - 2.54;
-upperConnectorYPos = 50.8 - 2.54*2;
-lowerConnectorWidth = 35.56 + 2.54*2;
-lowerConnectorXPos = 27.94 - 2.54;
-lowerConnectorYPos = 2.54 - 2.54;
-
-icspConnectorWidth = 5.08 + 2.54*2;
-icspConnectorWide = 2.54 + 2.54*2;
-icspConnectorXPos = 63.64 - 2.54;
-icspConnectorYPos = 30.43 + 2.54;
-
-ledHoleWidth = 2.54 + 1.27*2;
-ledHoleWide = 9 + 2.54 + 1.27;
-ledHoleXPos = 27.85 - 1.27 - 2.54;
-ledHoleYPos = 42.30 + 2.54;
-
-powerLedHoleWidth = 2.54 + 1.27*2;
-powerLedHoleWide = 2.54 + 1.27*2;
-powerLedHoleXPos = 58.5 - 1.27;
-powerLedHoleYPos = 36.5 + powerLedHoleWide/2;
-
-extraConnectorWidth = 10.82 + 2.54*2;
-extraConnectorWide = 2.54 + 2.54*2;
-extraConnectorXPos = 15.75 - 2.54;
-extraConnectorYPos = 47.7 + 2.54;
-
-buttonSize = 4;
-buttonXPos = 6.15;
-buttonYPos = 50;
-buttonBaseHeight = 2;
-buttonBaseR = buttonSize/2 + 0.25 + layerWidth*3;
-
 screwHeight=5;
 
 //------------------------------------------------------------------------- MODULES
 module pcbLeg() {
 	translate([0, 0, 0])
 	difference() { 											
-		cylinder(h = height - floorHeight - pcbHeightOffset - pcbHeight, r = 5.7/2);
+		cylinder(h = height - floorHeight - pcbHeightOffset - pcbHeight, r = 5/2);
 	}
 }
 
@@ -151,8 +118,14 @@ difference()
 	    		translate(i)
 	    		pcbLeg();
 		}
+        translate([convPcbPositionX, convPcbPositionY, 0])
+        // Add pcb legs
+		for(i=convPcbHoles)
+		{
+	    		translate(i)
+	    		pcbLeg();
+		}
         translate([canPcbPositionX, canPcbPositionY, 0])
-        rotate([0, 0, -90])
         // Add pcb legs
 		for(i=canPcbHoles)
 		{

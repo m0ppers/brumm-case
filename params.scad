@@ -35,7 +35,7 @@ pillarSize = roundR-0.01; // corner pillar size
 // these are NOT case dimensions
 // to calculate external case dimesions add 2 * roundR
 // 55.3 + (2*10.5) = 76.3
-width = 150.0;
+width = 160.0;
 wide = 80;
 
 blockLockSize = 2; // middle connection lock size
@@ -53,15 +53,15 @@ echo("wide", wide + roundR*2); // total wide
 
 pcbHeight=1.64;
 pcbHeightOffset = 2.5;
-pcbGap = 4;
+pcbGap = 3;
 
-canPcbLength=43.0;
-canPcbWidth=28.0;
-canPcbPositionX = (width/2 + roundR - layerWidth*7 - gap*4) - canPcbWidth;
-canPcbPositionY = 10;
-canPcbHoles=[ [2.5, 2.3, 0], 				
-              [canPcbLength - 2.5, 2.3, 0],
-          		[2.5, canPcbWidth - 2.5, 0],
+canPcbLength=28.0;
+canPcbWidth=43.0;
+canPcbPositionX = (width/2 + roundR - layerWidth*7 - gap*4) - pcbGap - canPcbLength;
+canPcbPositionY = -canPcbWidth/2;
+canPcbHoles=[ [2.5, 2.5, 0], 				
+              [2.5, canPcbWidth - 2.5, 0],
+          		[canPcbLength - 2.5, 2.5, 0],
           		[canPcbLength - 2.5, canPcbWidth - 2.5, 0] ];
 
 // UNO PCB dimensions
@@ -88,4 +88,15 @@ usbPcbPositionY = megaPcbPositionY + megaPcbWidth + pcbGap;
 usbPcbHoles=[  [14.0, usbPcbWidth - 3.8, 0], 				
                 [56.1, usbPcbWidth - 2.8, 0],
           		[28.5, 4.8, 0]
+             ];
+             
+convPcbLength=30;
+convPcbWidth=50.5;
+convHeight=23.0;
+convPcbPositionX=megaPcbPositionX - pcbGap - convPcbLength;
+convPcbPositionY=-10;
+convPcbHoles=[  [4.5, 4.5, 0], 				
+                [4.5, 40.0, 0],
+          		[24.7, 4.5, 0],
+                [24.7, 40.0, 0]
              ];

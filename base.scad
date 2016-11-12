@@ -176,8 +176,6 @@ difference()
 //
 // Translate to pcbPositionX	
 translate([canPcbPositionX, canPcbPositionY, 0])
-rotate([0, 0, -90])
-
 difference()
 {
 																		// ADD
@@ -195,11 +193,31 @@ difference()
 
 }
 
-translate([width/2-10,-wide/2+20,0])
+translate([convPcbPositionX, convPcbPositionY, 0])
+//rotate([0, 0, -90])
+
+difference()
+{
+																		// ADD
+	union()
+	{
+		// Add pcb legs
+		for(i=convPcbHoles)
+		{
+	    		translate(i)
+	    		pcbLeg();
+                translate(i)
+                cylinder(h=floorHeight+pcbHeightOffset+1.5, r=1.2);
+		}
+	}
+
+}
+
+translate([width/2+roundR-25,-wide/2+20,0])
 nubsi();
 
-translate([width/2-10-72,-wide/2+20-8,0])
+translate([width/2+roundR-25-72,-wide/2+20-8,0])
 nubsi();
 
-translate([width/2-10-72,-wide/2+20-8+44,0])
+translate([width/2+roundR-25-72,-wide/2+20-8+44,0])
 nubsi();
